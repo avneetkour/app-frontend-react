@@ -1,0 +1,31 @@
+{
+  "name": "app-frontend-react",
+  "version": "1.0.0",
+  "description": "This is React frontend Application",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avneetkour/app-frontend-react.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Avneet kour",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avneetkour/app-frontend-react/issues"
+  },
+  "homepage": "https://github.com/avneetkour/app-frontend-react#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
