@@ -1,3 +1,38 @@
-#heading {
-    color: red;;
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+.logo img{
+    height: 80px;
+    width: 80px;
+}
+.nav-items ul{
+    display: flex;
+    list-style-type: none;
+}
+.nav-items ul li{
+    padding: 10px 20px;
+    font-size: 20px;
+}
+.body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid black;
+}
+.res-container{
+    margin: 10px;
+    width: 270px;
+    border: 1px solid black;
+}
+.res-details{
+    text-align: left;
+    font-size: 20px;
+    padding: 10px;
+}   
+.res-details img{
+    border: 1px solid black;
+    margin-bottom: 10px;
 }
