@@ -1,41 +1,3 @@
-import ReactDOM from "react-dom/client";
-import React from "react";
-
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo">
-                <img src="https://png.pngtree.com/png-vector/20250217/ourmid/pngtree-unique-food-logo-png-image_15488394.png" alt="logo" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-  
-const Restaurant = (props) => {
-    console.log("props", props);
-    const { name, cuisines, avgRating, locality, areaName, costForTwo,cloudinaryImageId } = props;
-    return (
-        <div className="res-container">
-            <div className="res-details">
-                <img height="150px" width="250px" src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`} />
-                <h3>{name}</h3>
-                <p>{cuisines.join(",")}</p>
-                <p>Rating:{avgRating}</p>
-                <p>Address {locality} , {areaName}</p>
-                <p>Cost for two : {costForTwo}</p>
-            </div>
-        </div>
-    )
-}
-
 const ResData = [
                     {
                         "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
@@ -1322,19 +1284,4 @@ const ResData = [
                         "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
                     }
                 ]
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header />
-            <div className="body">
-                {ResData.map((restaurant) => (
-                    <Restaurant key={restaurant.info.id} {...restaurant.info} />
-                ))}
-            </div>
-        </div>
-    )
-}
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+export default ResData;
