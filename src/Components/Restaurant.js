@@ -1,7 +1,7 @@
 import { IMG_CDN_URL } from "../Utils/constants";
 
 const Restaurant = (props) => {
-    console.log("props", props);
+    // console.log("props", props);
     const { name, cuisines, avgRating, locality, areaName, costForTwo, cloudinaryImageId } = props;
     return (
         <div className="res-container">
