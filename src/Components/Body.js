@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ResData from "../Utils/mockData";
 import Restaurant from "./Restaurant";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [filteredList, setFilteredList] = useState([]);
@@ -28,13 +29,19 @@ const Body = () => {
   return (
     <>
       <div>
-        <button className="res-btn" onClick={filterRes}>Top Rated Restaurant</button>
+        <button className="res-btn" onClick={filterRes}>
+          Top Rated Restaurant
+        </button>
       </div>
-      <div className="body">
-        {filteredList.map((restaurant) => (
-          <Restaurant key={restaurant.info.id} {...restaurant.info} />
-        ))}
-      </div>
+      {filteredList.length === 0 ? (
+        <Shimmer />
+      ) : (
+        <div className="body">
+          {filteredList.map((restaurant) => (
+            <Restaurant key={restaurant.info.id} {...restaurant.info} />
+          ))}
+        </div>
+      )}
     </>
   );
 };

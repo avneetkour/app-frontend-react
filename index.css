@@ -42,3 +42,17 @@
     font-size: 20px;
     cursor: pointer;
 }
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid #efefef;
+}
+.shimmer-card{
+    margin: 10px;
+    width: 270px;
+    height: 350px;
+    border: 1px solid #efefef;
+    background-color: #efefef;
+    animation: shimmer 1.5s infinite;
+}
