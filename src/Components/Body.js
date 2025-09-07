@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import ResData from "../Utils/mockData";
+// import ResData from "../Utils/mockData";
 import Restaurant from "./Restaurant";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
+  const [resList, setResList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(()=>{
     fetchData();
@@ -15,20 +17,36 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
     setFilteredList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    console.log("filteredList",filteredList);
+    setResList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
+  const searchRestVaue = () =>{
+    const newFilteredList = resList.filter((res) =>
+      res.info.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setFilteredList(newFilteredList);
+    if(newFilteredList.length === 0){
+      alert("No restaurant found");
+    }
+  }
   const filterRes = () => {
-    const newFilteredList = filteredList.filter(
+    const newFilteredList = resList.filter(
       (res) => res.info.avgRating > 4.5
     );
     setFilteredList(newFilteredList);
+    setSearchValue("");
     console.log(filteredList);
   }
   console.log("filteredList2",filteredList);
   return (
     <>
-      <div>
+      <div className="btn-container">
+        <div className="search-restaurant">
+          <input type="text" className="search-input" placeholder="Search Restaurant" value={searchValue} onChange={(event)=>{
+            setSearchValue(event.target.value);
+          }}/>
+          <button className="search-btn" onClick={searchRestVaue} disabled = {searchValue==""}>Search</button>
+        </div>
         <button className="res-btn" onClick={filterRes}>
           Top Rated Restaurant
         </button>
